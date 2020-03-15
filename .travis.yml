@@ -1,5 +1,7 @@
 language: java
+dist: bionic
 
 script: 
+ - ./sbt update
  - ./sbt all
  - ./nightly.sh
