@@ -3,11 +3,9 @@ dist: bionic
 
 jdk:
  - openjdk8
- - oraclejdk8
  - openjdk13
  - oraclejdk13
 
 script: 
- - ./sbt update
  - ./sbt all
  - ./nightly.sh
