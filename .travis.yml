@@ -1,10 +1,9 @@
-language: java
+language: scala
 dist: bionic
 
 jdk:
- - openjdk8
- - openjdk13
- - oraclejdk13
+  - openjdk8
+  - oraclejdk8
 
 script: 
  - ./sbt all
