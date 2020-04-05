@@ -1,0 +1,33 @@
+image: Visual Studio 2019
+environment:
+  JAVA_OPTS: -Xmx3072m -server
+
+#cache:
+#  - C:\ProgramData\chocolatey\bin
+#  - C:\ProgramData\chocolatey\lib
+#  - C:\Users\appveyor\.sbt
+
+skip_commits:
+  files:
+    - '.gitignore'
+    - 'Jenkinsfile'
+
+install:
+ - git submodule update --init
+ - choco install sbt -ia "INSTALLDIR=""C:\sbt""" --version 1.2.8
+ - SET PATH=C:\sbt\bin;%JAVA_HOME%\bin;%PATH%
+ - java -version
+
+build_script:
+ - sbt update
+ - sbt all
+ - sbt netlogo/compile
+
+artifacts:
+ - path: '**\*netlogo*.exe'
+ - path: '**\*netlogo*.dll'
+ - path: '**\*netlogo*.jar'
+ - path: '**\netlogo.*'
+ - path: project
+ - path: netlogo
+ - path: netlogo-gui
