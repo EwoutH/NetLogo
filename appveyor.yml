@@ -31,3 +31,4 @@ artifacts:
  - path: project
  - path: netlogo
  - path: netlogo-gui
+ - path: $(APPVEYOR_BUILD_FOLDER)
