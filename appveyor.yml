@@ -22,13 +22,9 @@ build_script:
  - sbt update
  - sbt all
  - sbt netlogo/compile
+ 
+after_build:
+ - 7z a netlogo.zip %APPVEYOR_BUILD_FOLDER%
 
 artifacts:
- - path: '**\*netlogo*.exe'
- - path: '**\*netlogo*.dll'
- - path: '**\*netlogo*.jar'
- - path: '**\netlogo.*'
- - path: project
- - path: netlogo
- - path: netlogo-gui
- - path: $(APPVEYOR_BUILD_FOLDER)
+ - path: netlogo.zip
